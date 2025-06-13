@@ -1,0 +1,25 @@
+{
+  "name": "SBK_HT16K33",
+  "version": "1.0.0",
+  "description": "Arduino driver for HT16K33 I2C LED matrix or bar meter. Compatible with SBK_BarDrive.",
+  "keywords": ["LED", "HT16K33", "I2C", "matrix", "bargraph", "display"],
+  "authors": [
+    {
+      "name": "Samuel Barabé",
+      "email": "smartbuildskits@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sbarabe/SBK_HT16K33",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbarabe/SBK_HT16K33"
+  },
+  "frameworks": ["arduino"],
+  "platforms": ["atmelavr", "espressif8266", "espressif32", "stm32", "teensy"],
+  "headers": "SBK_HT16K33.h",
+  "examples": [
+    "examples/simpleDemo"
+  ]
+}
