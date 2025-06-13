@@ -1,0 +1,7 @@
+begin               KEYWORD2
+clear               KEYWORD2
+show                KEYWORD2
+setLed              KEYWORD2
+getLed              KEYWORD2
+setBrightness       KEYWORD2
+
