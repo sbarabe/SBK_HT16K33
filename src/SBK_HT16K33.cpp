@@ -14,13 +14,22 @@
  * Original Author: Mike S11
  * Adapted by: Samuel Barabé (Smart Builds & Kits)
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @license MIT
  */
 
 #include "SBK_HT16K33.h"
 
-SBK_HT16K33::SBK_HT16K33(uint8_t addr): _buffer(nullptr), _i2c_addr(addr) {}
+SBK_HT16K33::SBK_HT16K33(uint8_t devsNum)
+    : _devsNum(constrain(devsNum, 1, 8)),
+      _buffer(nullptr)
+{
+    for (uint8_t i = 0; i < _devsNum; i++)
+        _i2c_addr[i] = 0x70 + i; // 0x70 == 112 decimal
+
+    for (uint8_t i = 0; i < _devsNum; i++)
+        _maxRows[i] = _defaultRowBufferSize; // 8 rows (anodes) default value
+}
 
 SBK_HT16K33::~SBK_HT16K33()
 {
@@ -31,125 +40,152 @@ SBK_HT16K33::~SBK_HT16K33()
     }
 }
 
-void SBK_HT16K33::begin()
+uint8_t SBK_HT16K33::setAddress(uint8_t devIdx, uint8_t addr)
 {
-  // assign + zero some buffer data
-  _buffer = (uint16_t *)calloc(8, sizeof(uint16_t));
-  if (!_buffer) return; // Allocation failed
+    if (devIdx >= _devsNum || addr < 0x70 || addr > 0x77)
+        return 0; // invalid
 
- Wire.begin();
-
-    // Start oscillator
-  Wire.beginTransmission(_i2c_addr);
-  Wire.write(0x21); // turn it on
-  Wire.endTransmission();
-
-    // Enable display, disable blink
-  Wire.beginTransmission(_i2c_addr);
-  Wire.write(HT16K33_CMD_SETUP | HT16K33_DISPLAY_ON | HT16K33_BLINK_OFF);
-  Wire.endTransmission();
-
-  // Set default brightness
-  setBrightness(15);
-  clear();
-  show();
+    _i2c_addr[devIdx] = addr;
+    return 1; // success
 }
 
-void SBK_HT16K33::clear(uint8_t device)
+void SBK_HT16K33::begin()
 {
-  (void)device;
-  clear();
+    // assign + zero some buffer data
+    _buffer = (uint16_t *)calloc(maxColumns() * _devsNum, sizeof(uint16_t));
+    if (!_buffer)
+        return; // Allocation failed
+
+    Wire.begin();
+
+    for (uint8_t i = 0; i < _devsNum; i++)
+    {
+        uint8_t addr = _i2c_addr[i];
+
+        // Start oscillator
+        Wire.beginTransmission(addr);
+        Wire.write(0x21); // turn it on
+        Wire.endTransmission();
+
+        // Enable display, disable blink
+        Wire.beginTransmission(addr);
+        Wire.write(HT16K33_CMD_SETUP | HT16K33_DISPLAY_ON | HT16K33_BLINK_OFF);
+        Wire.endTransmission();
+
+        // Set default brightness
+        setBrightness(i, 8);
+        clear(i);
+        show(i);
+    }
+}
+
+void SBK_HT16K33::clear(uint8_t devIdx)
+{
+    if (devIdx >= _devsNum)
+        return;
+
+    if (_buffer)
+    {
+        for (uint8_t i = 0; i < maxColumns(); i++)
+            _buffer[_colIndex(devIdx, i)] = 0;
+    }
 }
 
 void SBK_HT16K33::clear()
 {
-   if (_buffer)
+
+    for (uint8_t d = 0; d < _devsNum; d++)
     {
-        for (uint8_t i = 0; i < 8; i++)
-            _buffer[i] = 0;
+        clear(d);
     }
 }
 
-void SBK_HT16K33::setBrightness(uint8_t device, uint8_t brightness)
+void SBK_HT16K33::setBrightness(uint8_t devIdx, uint8_t brightness)
 {
-  (void)device;
-  setBrightness(brightness);
+    if (devIdx >= _devsNum)
+        return;
+
+    // constrain the brightness to a 4-bit number (0–15)
+    brightness &= 0x0F; // limit to 0–15
+
+    // send the command
+    Wire.beginTransmission(_i2c_addr[devIdx]);
+    Wire.write(HT16K33_CMD_DIMMING | brightness);
+    Wire.endTransmission();
 }
 
 void SBK_HT16K33::setBrightness(uint8_t brightness)
 {
-  // constrain the brightness to a 4-bit number (0–15)
-  brightness &= 0x0F; // limit to 0–15
 
-  // send the command
-  Wire.beginTransmission(_i2c_addr);
-  Wire.write(HT16K33_CMD_DIMMING | brightness);
-  Wire.endTransmission();
+    for (uint8_t d = 0; d < _devsNum; d++)
+    {
+        setBrightness(d, brightness);
+    }
 }
 
-void SBK_HT16K33::setLed(uint8_t device, uint8_t row, uint8_t col, bool state)
+void SBK_HT16K33::setLed(uint8_t devIdx, uint8_t rowIdx, uint8_t colIdx, bool state)
 {
-    (void)device;
-    setLed(row, col, state);
-}
-
-void SBK_HT16K33::setLed(uint8_t col, uint8_t row, bool state)
-{
-    if (!_buffer || row >= 8 || col >= 16)
+    if (!_buffer || devIdx >= _devsNum || rowIdx >= maxRows(devIdx) || colIdx >= maxColumns())
         return;
+
+    uint8_t index = _colIndex(devIdx, colIdx);
 
     if (state)
-        _buffer[row] |= (1 << col);
+        _buffer[index] |= (1 << rowIdx);
     else
-        _buffer[row] &= ~(1 << col);
+        _buffer[index] &= ~(1 << rowIdx);
+
+    Serial.print("[setLed] Dev: ");
+    Serial.print(devIdx);
+    Serial.print(" Row: ");
+    Serial.print(rowIdx);
+    Serial.print(" Col: ");
+    Serial.print(colIdx);
+    Serial.print(" State: ");
+    Serial.println(state ? "ON" : "OFF");
 }
 
-bool SBK_HT16K33::getLed(uint8_t device, uint8_t row, uint8_t col) const
+bool SBK_HT16K33::getLed(uint8_t devIdx, uint8_t rowIdx, uint8_t colIdx) const
 {
-    (void)device;
-   return getLed(row,col);
+    if (!_buffer || devIdx >= _devsNum || rowIdx >= maxRows(devIdx) || colIdx >= maxColumns())
+        return false; // return a safe default when out of bounds
+
+    uint8_t index = _colIndex(devIdx, colIdx);
+    return (_buffer[index] >> rowIdx) & 0x01;
 }
 
-bool SBK_HT16K33::getLed(uint8_t row, uint8_t col) const
+void SBK_HT16K33::_write(uint8_t devIdx)
 {
-    if (!_buffer || row >= 8 || col >= 16)
-        return false;
-
-    return (_buffer[row] >> col) & 0x01;
-}
-
-
-
-void SBK_HT16K33::_write()
-{
- if (!_buffer)
+    if (!_buffer || devIdx >= _devsNum)
         return;
 
-    Wire.beginTransmission(_i2c_addr);
+    Wire.beginTransmission(_i2c_addr[devIdx]);
     Wire.write(HT16K33_CMD_RAM); // Start at address 0x00
 
-    for (uint8_t row = 0; row < 8; row++)
+    for (uint8_t colIdx = 0; colIdx < maxColumns(); colIdx++)
     {
-        _writeRow(row);
+        uint16_t data = _buffer[_colIndex(devIdx, colIdx)];
+        Wire.write(data & 0xFF);        // LSB
+        Wire.write((data >> 8) & 0xFF); // MSB
     }
 
     Wire.endTransmission();
 }
 
-void SBK_HT16K33::show(uint8_t device)
+void SBK_HT16K33::show(uint8_t devIdx)
 {
-    (void)device;
-    _write();
+    _write(devIdx);
 }
 
-void SBK_HT16K33::show() {
-    _write();
+void SBK_HT16K33::show()
+{
+    for (uint8_t d = 0; d < _devsNum; d++)
+    {
+        show(d);
+    }
 }
 
-void SBK_HT16K33::_writeRow(uint8_t row)
+inline uint8_t SBK_HT16K33::_colIndex(uint8_t devIdx, uint8_t colIdx) const
 {
-   if (!_buffer || row >= 8) return;
-    uint16_t val = _buffer[row];
-    Wire.write(val & 0xFF);       // LSB
-    Wire.write((val >> 8) & 0xFF); // MSB
+    return devIdx * _defaultColBufferSize + colIdx;
 }

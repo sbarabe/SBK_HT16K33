@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getled_0',['getLed',['../class_s_b_k___h_t16_k33.html#af7ad9e30826ac249b71da8da22f4da3c',1,'SBK_HT16K33::getLed(uint8_t device, uint8_t row, uint8_t col) const'],['../class_s_b_k___h_t16_k33.html#a2f5f1e3f206649496278006c233c8ffb',1,'SBK_HT16K33::getLed(uint8_t row, uint8_t col) const']]]
+  ['clear_0',['clear',['../class_s_b_k___h_t16_k33.html#a84bfcf5dac069ecb4ba81cac3ca54f92',1,'SBK_HT16K33::clear(uint8_t devIdx)'],['../class_s_b_k___h_t16_k33.html#ab664179d176556e928116c2cb9b8b29b',1,'SBK_HT16K33::clear()']]],
+  ['credits_1',['🧠 Credits',['../C:/Users/sbara/OneDrive/Documents/GitHub/SBK_HT16K33/README.md#autotoc_md14',1,'']]]
 ];

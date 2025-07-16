@@ -4,4 +4,9 @@ show                KEYWORD2
 setLed              KEYWORD2
 getLed              KEYWORD2
 setBrightness       KEYWORD2
-
+setAddress          KEYWORD2
+devsNum             KEYWORD2
+maxRows             KEYWORD2
+maxColumns          KEYWORD2
+maxSegments         KEYWORD2
+setDriverRows       KEYWORD2

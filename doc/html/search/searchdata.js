@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "bcghs~",
+  0: "abcdefgilmosuw~✅📦🔧🧠🧩🧪🪪",
   1: "s",
   2: "s",
-  3: "bcgs~",
-  4: "hs"
+  3: "bcdgms~",
+  4: "acefilosuw✅📦🔧🧠🧩🧪🪪"
 };
 
 var indexSectionNames =
@@ -13,7 +13,7 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "defines"
+  4: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +22,6 @@ var indexSectionLabels =
   1: "Classes",
   2: "Files",
   3: "Functions",
-  4: "Macros"
+  4: "Pages"
 };
 

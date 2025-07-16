@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SBK_HT16K33 library<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">SBK_HT16K33 library<span id="projectnumber">&#160;2.0.0</span>
    </div>
    <div id="projectbrief">Standalone Arduino library to control HT16K33 LED matrices or bar meters via I2C. Can be used directly or as a driver for SBK_BarDrive animations.</div>
   </td>
@@ -100,38 +100,48 @@ $(function(){initNavTree('class_s_b_k___h_t16_k33.html','','class_s_b_k___h_t16_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a663b5514bafc2e96564294479500cc0b" id="r_a663b5514bafc2e96564294479500cc0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a663b5514bafc2e96564294479500cc0b">SBK_HT16K33</a> (uint8_t addr)</td></tr>
-<tr class="memdesc:a663b5514bafc2e96564294479500cc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_s_b_k___h_t16_k33.html" title="I2C driver wrapper for HT16K33 compatible with SBK_BarMeter and SBK_BarDrive.">SBK_HT16K33</a> instance.  <br /></td></tr>
-<tr class="memitem:a30cc6c62dd868a6b897ab1df7c3da2b7" id="r_a30cc6c62dd868a6b897ab1df7c3da2b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30cc6c62dd868a6b897ab1df7c3da2b7">~SBK_HT16K33</a> ()</td></tr>
-<tr class="memdesc:a30cc6c62dd868a6b897ab1df7c3da2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Frees allocated buffer memory.  <br /></td></tr>
-<tr class="memitem:ad31259272e0857ae1fbb59e480d18d23" id="r_ad31259272e0857ae1fbb59e480d18d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad31259272e0857ae1fbb59e480d18d23">begin</a> ()</td></tr>
-<tr class="memdesc:ad31259272e0857ae1fbb59e480d18d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the HT16K33 device at a given I2C address.  <br /></td></tr>
-<tr class="memitem:a163b2d4eb8bdf04983803b30505029db" id="r_a163b2d4eb8bdf04983803b30505029db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a163b2d4eb8bdf04983803b30505029db">clear</a> (uint8_t device)</td></tr>
-<tr class="memdesc:a163b2d4eb8bdf04983803b30505029db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the display buffer (device parameter ignored)(API-compatible wrapper).  <br /></td></tr>
+<tr class="memitem:a25e390dd50ef052417ce192511600276" id="r_a25e390dd50ef052417ce192511600276"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e390dd50ef052417ce192511600276">SBK_HT16K33</a> (uint8_t <a class="el" href="#a910f47075f2ec60ab736feaed76d87e4">devsNum</a>=1)</td></tr>
+<tr class="memdesc:a25e390dd50ef052417ce192511600276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_s_b_k___h_t16_k33.html" title="I2C driver wrapper for HT16K33 compatible with SBK_BarMeter and SBK_BarDrive.">SBK_HT16K33</a> instance.  <br /></td></tr>
+<tr class="memitem:a30cc6c62dd868a6b897ab1df7c3da2b7" id="r_a30cc6c62dd868a6b897ab1df7c3da2b7"><td class="memItemLeft" align="right" valign="top"><a id="a30cc6c62dd868a6b897ab1df7c3da2b7" name="a30cc6c62dd868a6b897ab1df7c3da2b7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~SBK_HT16K33</b> ()</td></tr>
+<tr class="memdesc:a30cc6c62dd868a6b897ab1df7c3da2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Frees allocated buffer memory. <br /></td></tr>
+<tr class="memitem:a7f6d375f0b813ef3f867d8c3165fc0d2" id="r_a7f6d375f0b813ef3f867d8c3165fc0d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f6d375f0b813ef3f867d8c3165fc0d2">setDriverRows</a> (uint8_t devIdx, uint8_t rowsCount=8)</td></tr>
+<tr class="memdesc:a7f6d375f0b813ef3f867d8c3165fc0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of active rows (anode outputs) for a specific HT16K33 device.  <br /></td></tr>
+<tr class="memitem:a046491cde6ca34dc8dd708f9ff7aac6c" id="r_a046491cde6ca34dc8dd708f9ff7aac6c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a046491cde6ca34dc8dd708f9ff7aac6c">maxRows</a> (uint8_t devIdx) const</td></tr>
+<tr class="memdesc:a046491cde6ca34dc8dd708f9ff7aac6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active row lines (anode outputs) for a specific HT16K33 device.  <br /></td></tr>
+<tr class="memitem:aaae6ed9a35ba09c5d4d4ef375088caa0" id="r_aaae6ed9a35ba09c5d4d4ef375088caa0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaae6ed9a35ba09c5d4d4ef375088caa0">maxColumns</a> () const</td></tr>
+<tr class="memdesc:aaae6ed9a35ba09c5d4d4ef375088caa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active column lines (cathode outputs = C0–C7) configured for this instance.  <br /></td></tr>
+<tr class="memitem:a18a4b6b15931d0572ba72b6e7b98ae4d" id="r_a18a4b6b15931d0572ba72b6e7b98ae4d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18a4b6b15931d0572ba72b6e7b98ae4d">maxSegments</a> (uint8_t devIdx) const</td></tr>
+<tr class="memdesc:a18a4b6b15931d0572ba72b6e7b98ae4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of addressable LED segments for the specified device.  <br /></td></tr>
+<tr class="memitem:a34903829db877a8c75076010e11d047e" id="r_a34903829db877a8c75076010e11d047e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34903829db877a8c75076010e11d047e">setAddress</a> (uint8_t devIdx, uint8_t addr)</td></tr>
+<tr class="memdesc:a34903829db877a8c75076010e11d047e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the I2C address for a specific HT16K33 device.  <br /></td></tr>
+<tr class="memitem:ad31259272e0857ae1fbb59e480d18d23" id="r_ad31259272e0857ae1fbb59e480d18d23"><td class="memItemLeft" align="right" valign="top"><a id="ad31259272e0857ae1fbb59e480d18d23" name="ad31259272e0857ae1fbb59e480d18d23"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="memdesc:ad31259272e0857ae1fbb59e480d18d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the HT16K33 device at a given I2C address. <br /></td></tr>
+<tr class="memitem:a84bfcf5dac069ecb4ba81cac3ca54f92" id="r_a84bfcf5dac069ecb4ba81cac3ca54f92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84bfcf5dac069ecb4ba81cac3ca54f92">clear</a> (uint8_t devIdx)</td></tr>
+<tr class="memdesc:a84bfcf5dac069ecb4ba81cac3ca54f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the display buffer for the specified device.  <br /></td></tr>
 <tr class="memitem:ab664179d176556e928116c2cb9b8b29b" id="r_ab664179d176556e928116c2cb9b8b29b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab664179d176556e928116c2cb9b8b29b">clear</a> ()</td></tr>
-<tr class="memdesc:ab664179d176556e928116c2cb9b8b29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the internal display buffer.  <br /></td></tr>
-<tr class="memitem:a4b8f7407ae5ed711eda58bbd092c2398" id="r_a4b8f7407ae5ed711eda58bbd092c2398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b8f7407ae5ed711eda58bbd092c2398">setBrightness</a> (uint8_t device, uint8_t brightness)</td></tr>
-<tr class="memdesc:a4b8f7407ae5ed711eda58bbd092c2398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level (0–15) of the device (API-compatible wrapper).  <br /></td></tr>
+<tr class="memdesc:ab664179d176556e928116c2cb9b8b29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the display buffers for all devices.  <br /></td></tr>
+<tr class="memitem:a1c81b237a7964502a47c3df18fc84fd4" id="r_a1c81b237a7964502a47c3df18fc84fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c81b237a7964502a47c3df18fc84fd4">setBrightness</a> (uint8_t devIdx, uint8_t brightness)</td></tr>
+<tr class="memdesc:a1c81b237a7964502a47c3df18fc84fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level (0–15) for a specific device.  <br /></td></tr>
 <tr class="memitem:a2913354d93ffe44eec8bd3e305c04522" id="r_a2913354d93ffe44eec8bd3e305c04522"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2913354d93ffe44eec8bd3e305c04522">setBrightness</a> (uint8_t brightness)</td></tr>
-<tr class="memdesc:a2913354d93ffe44eec8bd3e305c04522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level (0–15).  <br /></td></tr>
-<tr class="memitem:a516fbdb258fe3b87fe2db738601ff2b9" id="r_a516fbdb258fe3b87fe2db738601ff2b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516fbdb258fe3b87fe2db738601ff2b9">setLed</a> (uint8_t device, uint8_t row, uint8_t col, bool state)</td></tr>
-<tr class="memdesc:a516fbdb258fe3b87fe2db738601ff2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an individual LED on or off (device-specific call) (API-compatible wrapper).  <br /></td></tr>
-<tr class="memitem:a62655bfec20033be2dc6d48a71ce6907" id="r_a62655bfec20033be2dc6d48a71ce6907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62655bfec20033be2dc6d48a71ce6907">setLed</a> (uint8_t row, uint8_t col, bool state)</td></tr>
-<tr class="memdesc:a62655bfec20033be2dc6d48a71ce6907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an individual LED on or off.  <br /></td></tr>
-<tr class="memitem:af7ad9e30826ac249b71da8da22f4da3c" id="r_af7ad9e30826ac249b71da8da22f4da3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7ad9e30826ac249b71da8da22f4da3c">getLed</a> (uint8_t device, uint8_t row, uint8_t col) const</td></tr>
-<tr class="memdesc:af7ad9e30826ac249b71da8da22f4da3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current state of an LED in the buffer (API-compatible wrapper).  <br /></td></tr>
-<tr class="memitem:a2f5f1e3f206649496278006c233c8ffb" id="r_a2f5f1e3f206649496278006c233c8ffb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5f1e3f206649496278006c233c8ffb">getLed</a> (uint8_t row, uint8_t col) const</td></tr>
-<tr class="memdesc:a2f5f1e3f206649496278006c233c8ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current state of an LED in the buffer.  <br /></td></tr>
-<tr class="memitem:aa769abea843f77ff4dab588cdb7068e8" id="r_aa769abea843f77ff4dab588cdb7068e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa769abea843f77ff4dab588cdb7068e8">show</a> (uint8_t device)</td></tr>
-<tr class="memdesc:aa769abea843f77ff4dab588cdb7068e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push internal buffer to the device (API-compatible wrapper).  <br /></td></tr>
+<tr class="memdesc:a2913354d93ffe44eec8bd3e305c04522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level (0–15) for all devices.  <br /></td></tr>
+<tr class="memitem:a910f47075f2ec60ab736feaed76d87e4" id="r_a910f47075f2ec60ab736feaed76d87e4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a910f47075f2ec60ab736feaed76d87e4">devsNum</a> () const</td></tr>
+<tr class="memdesc:a910f47075f2ec60ab736feaed76d87e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active HT16K33 devices managed by this driver instance.  <br /></td></tr>
+<tr class="memitem:a19b65f7a38999dbc756465e3fb34758a" id="r_a19b65f7a38999dbc756465e3fb34758a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19b65f7a38999dbc756465e3fb34758a">setLed</a> (uint8_t devIdx, uint8_t rowIdx, uint8_t colIdx, bool state)</td></tr>
+<tr class="memdesc:a19b65f7a38999dbc756465e3fb34758a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the state of an individual LED for a specific device.  <br /></td></tr>
+<tr class="memitem:a9c753c7a52148297be60b9d3de4f84b0" id="r_a9c753c7a52148297be60b9d3de4f84b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c753c7a52148297be60b9d3de4f84b0">getLed</a> (uint8_t devIdx, uint8_t rowIdx, uint8_t colIdx) const</td></tr>
+<tr class="memdesc:a9c753c7a52148297be60b9d3de4f84b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current state of an LED from the internal display buffer.  <br /></td></tr>
+<tr class="memitem:a8e078b936d22c5ffedc72ee5947d7e18" id="r_a8e078b936d22c5ffedc72ee5947d7e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e078b936d22c5ffedc72ee5947d7e18">show</a> (uint8_t devIdx)</td></tr>
+<tr class="memdesc:a8e078b936d22c5ffedc72ee5947d7e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push the internal display buffer to a specific device.  <br /></td></tr>
 <tr class="memitem:afbb7e443dc31691a5c6146a52e421204" id="r_afbb7e443dc31691a5c6146a52e421204"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbb7e443dc31691a5c6146a52e421204">show</a> ()</td></tr>
-<tr class="memdesc:afbb7e443dc31691a5c6146a52e421204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push internal buffer to the display.  <br /></td></tr>
+<tr class="memdesc:afbb7e443dc31691a5c6146a52e421204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push the internal display buffer to all devices.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>I2C driver wrapper for HT16K33 compatible with SBK_BarMeter and SBK_BarDrive. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a663b5514bafc2e96564294479500cc0b" name="a663b5514bafc2e96564294479500cc0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a663b5514bafc2e96564294479500cc0b">&#9670;&#160;</a></span>SBK_HT16K33()</h2>
+<a id="a25e390dd50ef052417ce192511600276" name="a25e390dd50ef052417ce192511600276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e390dd50ef052417ce192511600276">&#9670;&#160;</a></span>SBK_HT16K33()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +149,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SBK_HT16K33::SBK_HT16K33 </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devsNum</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -148,52 +158,14 @@ Public Member Functions</h2></td></tr>
 <p>Construct a new <a class="el" href="class_s_b_k___h_t16_k33.html" title="I2C driver wrapper for HT16K33 compatible with SBK_BarMeter and SBK_BarDrive.">SBK_HT16K33</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>I2C address of the HT16K33 device. </td></tr>
+    <tr><td class="paramname">devsNum</td><td>Number of HT16K33 devices included this driver instance (up to 8). Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a30cc6c62dd868a6b897ab1df7c3da2b7" name="a30cc6c62dd868a6b897ab1df7c3da2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30cc6c62dd868a6b897ab1df7c3da2b7">&#9670;&#160;</a></span>~SBK_HT16K33()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SBK_HT16K33::~SBK_HT16K33 </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructor. Frees allocated buffer memory. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ad31259272e0857ae1fbb59e480d18d23" name="ad31259272e0857ae1fbb59e480d18d23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad31259272e0857ae1fbb59e480d18d23">&#9670;&#160;</a></span>begin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SBK_HT16K33::begin </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize the HT16K33 device at a given I2C address. </p>
-
-</div>
-</div>
 <a id="ab664179d176556e928116c2cb9b8b29b" name="ab664179d176556e928116c2cb9b8b29b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab664179d176556e928116c2cb9b8b29b">&#9670;&#160;</a></span>clear() <span class="overload">[1/2]</span></h2>
 
@@ -209,12 +181,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clear the internal display buffer. </p>
+<p>Clear the display buffers for all devices. </p>
+<p>This clears the internal LED state buffers across all managed HT16K33 devices. Call <span class="tt">.<a class="el" href="#afbb7e443dc31691a5c6146a52e421204" title="Push the internal display buffer to all devices.">show()</a></span> afterward to push the changes to the physical displays. </p>
 
 </div>
 </div>
-<a id="a163b2d4eb8bdf04983803b30505029db" name="a163b2d4eb8bdf04983803b30505029db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a163b2d4eb8bdf04983803b30505029db">&#9670;&#160;</a></span>clear() <span class="overload">[2/2]</span></h2>
+<a id="a84bfcf5dac069ecb4ba81cac3ca54f92" name="a84bfcf5dac069ecb4ba81cac3ca54f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84bfcf5dac069ecb4ba81cac3ca54f92">&#9670;&#160;</a></span>clear() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,24 +195,53 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SBK_HT16K33::clear </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clear the display buffer (device parameter ignored)(API-compatible wrapper). </p>
+<p>Clear the display buffer for the specified device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>Not used, for compatibility only. </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7).</td></tr>
   </table>
   </dd>
 </dl>
+<p>This clears the internal buffer for a single HT16K33 device. Call <span class="tt">.show(devIdx)</span> to apply the cleared state to the hardware. </p>
 
 </div>
 </div>
-<a id="af7ad9e30826ac249b71da8da22f4da3c" name="af7ad9e30826ac249b71da8da22f4da3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7ad9e30826ac249b71da8da22f4da3c">&#9670;&#160;</a></span>getLed() <span class="overload">[1/2]</span></h2>
+<a id="a910f47075f2ec60ab736feaed76d87e4" name="a910f47075f2ec60ab736feaed76d87e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a910f47075f2ec60ab736feaed76d87e4">&#9670;&#160;</a></span>devsNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SBK_HT16K33::devsNum </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of active HT16K33 devices managed by this driver instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of active driver devices for this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a9c753c7a52148297be60b9d3de4f84b0" name="a9c753c7a52148297be60b9d3de4f84b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c753c7a52148297be60b9d3de4f84b0">&#9670;&#160;</a></span>getLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,62 +249,179 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool SBK_HT16K33::getLed </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rowIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;) const</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>colIdx</em></span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the current state of an LED in the buffer (API-compatible wrapper). </p>
+<p>Get the current state of an LED from the internal display buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>not used, for compatibility only. </td></tr>
-    <tr><td class="paramname">row</td><td>Row index (0–7). </td></tr>
-    <tr><td class="paramname">col</td><td>Column index (0–15). </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Not used (for API compatibility only). </td></tr>
+    <tr><td class="paramname">rowIdx</td><td>Row index (0–7). </td></tr>
+    <tr><td class="paramname">colIdx</td><td>Column index (0–15). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the LED is ON, false otherwise. Get LED state at (row, col) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the LED is ON in the internal buffer, false otherwise.</dd></dl>
+<p>This function reads the last known LED state from the driver’s RAM buffer. It does not query the physical device directly.</p>
+<dl class="section note"><dt>Note</dt><dd>For HT16K33:<ul>
+<li><b>rowIdx</b> maps to Rx lines (anodes)</li>
+<li><b>colIdx</b> maps to Cx lines (cathodes) Get LED state at (rowIdx, colIdx) </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
-<a id="a2f5f1e3f206649496278006c233c8ffb" name="a2f5f1e3f206649496278006c233c8ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f5f1e3f206649496278006c233c8ffb">&#9670;&#160;</a></span>getLed() <span class="overload">[2/2]</span></h2>
+<a id="aaae6ed9a35ba09c5d4d4ef375088caa0" name="aaae6ed9a35ba09c5d4d4ef375088caa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae6ed9a35ba09c5d4d4ef375088caa0">&#9670;&#160;</a></span>maxColumns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SBK_HT16K33::maxColumns </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of active column lines (cathode outputs = C0–C7) configured for this instance. </p>
+<p>Each column corresponds to a HT16K33 C-line (C0–C7), controlling the cathode side of the LEDs. This defines how many columns (scan lines) are used in the matrix.</p>
+<dl class="section return"><dt>Returns</dt><dd>Number of active columns (cathode lines), always 8 for HT16K33. </dd></dl>
+
+</div>
+</div>
+<a id="a046491cde6ca34dc8dd708f9ff7aac6c" name="a046491cde6ca34dc8dd708f9ff7aac6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a046491cde6ca34dc8dd708f9ff7aac6c">&#9670;&#160;</a></span>maxRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SBK_HT16K33::maxRows </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of active row lines (anode outputs) for a specific HT16K33 device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Each row corresponds to a physical R-line (R0–R15) on the HT16K33 chip, which controls the anode side of the matrix. The number of active rows depends on the chip package:</p><ul>
+<li><b>20-SOP</b>: 8 rows</li>
+<li><b>24-SOP</b>: 12 rows</li>
+<li><b>28-SOP</b>: 16 rows (full range)</li>
+</ul>
+<p>This function returns the current row configuration for the specified device, which can be set using <span class="tt"><a class="el" href="#a7f6d375f0b813ef3f867d8c3165fc0d2" title="Set the number of active rows (anode outputs) for a specific HT16K33 device.">setDriverRows()</a></span>.</p>
+<dl class="section return"><dt>Returns</dt><dd>Number of active row lines for the given device. </dd></dl>
+
+</div>
+</div>
+<a id="a18a4b6b15931d0572ba72b6e7b98ae4d" name="a18a4b6b15931d0572ba72b6e7b98ae4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a4b6b15931d0572ba72b6e7b98ae4d">&#9670;&#160;</a></span>maxSegments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SBK_HT16K33::maxSegments </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the total number of addressable LED segments for the specified device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devIdx</td><td>Index of the device (0–7).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Computed as: <span class="tt">maxRows(devIdx) × <a class="el" href="#aaae6ed9a35ba09c5d4d4ef375088caa0" title="Returns the number of active column lines (cathode outputs = C0–C7) configured for this instance.">maxColumns()</a></span></p>
+<p>This represents the number of individually addressable LEDs (or matrix pixels) available on the specified HT16K33 device, depending on its configured row count.</p>
+<p>HT16K33 supports up to:</p><ul>
+<li>64 segments (8×8) for 20-SOP</li>
+<li>96 segments (12×8) for 24-SOP</li>
+<li>128 segments (16×8) for 28-SOP</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>Total number of addressable LED segments for the given device. </dd></dl>
+
+</div>
+</div>
+<a id="a34903829db877a8c75076010e11d047e" name="a34903829db877a8c75076010e11d047e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34903829db877a8c75076010e11d047e">&#9670;&#160;</a></span>setAddress()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool SBK_HT16K33::getLed </td>
+          <td class="memname">uint8_t SBK_HT16K33::setAddress </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;) const</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the current state of an LED in the buffer. </p>
+<p>Set the I2C address for a specific HT16K33 device. </p>
+<p>By default, device 0 uses address 0x70, device 1 uses 0x71, ..., up to device 7 using 0x77. This function allows you to override that default address mapping.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Row index (0–7). </td></tr>
-    <tr><td class="paramname">col</td><td>Column index (0–15). </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Device Index (0–7). </td></tr>
+    <tr><td class="paramname">addr</td><td>I2C address to assign (must be in range 0x70–0x77). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the LED is ON, false otherwise. Get LED state at (row, col) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the address was successfully set, 0 if devIdx or addr is invalid. </dd></dl>
 
 </div>
 </div>
@@ -321,18 +440,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the brightness level (0–15). </p>
+<p>Set the brightness level (0–15) for all devices. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">brightness</td><td>Brightness level from 0 (dim) to 15 (bright). </td></tr>
+    <tr><td class="paramname">brightness</td><td>Brightness level (0 = dimmest, 15 = brightest).</td></tr>
   </table>
   </dd>
 </dl>
+<p>This function applies the specified brightness level to all HT16K33 devices managed by this driver instance. </p>
 
 </div>
 </div>
-<a id="a4b8f7407ae5ed711eda58bbd092c2398" name="a4b8f7407ae5ed711eda58bbd092c2398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b8f7407ae5ed711eda58bbd092c2398">&#9670;&#160;</a></span>setBrightness() <span class="overload">[2/2]</span></h2>
+<a id="a1c81b237a7964502a47c3df18fc84fd4" name="a1c81b237a7964502a47c3df18fc84fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c81b237a7964502a47c3df18fc84fd4">&#9670;&#160;</a></span>setBrightness() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +460,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SBK_HT16K33::setBrightness </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -350,19 +470,65 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the brightness level (0–15) of the device (API-compatible wrapper). </p>
+<p>Set the brightness level (0–15) for a specific device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>not used, for compatibility only. </td></tr>
-    <tr><td class="paramname">brightness</td><td>Brightness level (0–15). </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7). </td></tr>
+    <tr><td class="paramname">brightness</td><td>Brightness level (0 = dimmest, 15 = brightest).</td></tr>
   </table>
   </dd>
 </dl>
+<p>This function sets the brightness for a single HT16K33 device. It is API-compatible with the MAX72xx interface used in SBK_BarDrive. </p>
 
 </div>
 </div>
-<a id="a516fbdb258fe3b87fe2db738601ff2b9" name="a516fbdb258fe3b87fe2db738601ff2b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a516fbdb258fe3b87fe2db738601ff2b9">&#9670;&#160;</a></span>setLed() <span class="overload">[1/2]</span></h2>
+<a id="a7f6d375f0b813ef3f867d8c3165fc0d2" name="a7f6d375f0b813ef3f867d8c3165fc0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f6d375f0b813ef3f867d8c3165fc0d2">&#9670;&#160;</a></span>setDriverRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SBK_HT16K33::setDriverRows </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rowsCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">8</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the number of active rows (anode outputs) for a specific HT16K33 device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7). </td></tr>
+    <tr><td class="paramname">rowsCount</td><td>Number of active row lines (must be 8, 12, or 16).Default is 8.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>HT16K33 comes in multiple package variants that determine the number of available anode outputs:</p><ul>
+<li><b>20-SOP</b> → 8 rows (R0–R7)</li>
+<li><b>24-SOP</b> → 12 rows (R0–R11)</li>
+<li><b>28-SOP</b> → 16 rows (R0–R15)</li>
+</ul>
+<p>Use this function to limit the active row count per device if you're using a smaller variant.</p>
+<dl class="section note"><dt>Note</dt><dd>Invalid device indices or unsupported row counts are ignored. </dd></dl>
+
+</div>
+</div>
+<a id="a19b65f7a38999dbc756465e3fb34758a" name="a19b65f7a38999dbc756465e3fb34758a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b65f7a38999dbc756465e3fb34758a">&#9670;&#160;</a></span>setLed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -370,17 +536,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SBK_HT16K33::setLed </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rowIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>colIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -390,52 +556,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set an individual LED on or off (device-specific call) (API-compatible wrapper). </p>
+<p>Set the state of an individual LED for a specific device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>not used, for compatibility only. </td></tr>
-    <tr><td class="paramname">row</td><td>Row index (0–7). </td></tr>
-    <tr><td class="paramname">col</td><td>Column index (0–15). </td></tr>
-    <tr><td class="paramname">state</td><td>true = ON, false = OFF. Set LED at (row, col) </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7). </td></tr>
+    <tr><td class="paramname">rowIdx</td><td>Row index (0 to maxRows(devIdx) - 1). </td></tr>
+    <tr><td class="paramname">colIdx</td><td>Column index (0 to <a class="el" href="#aaae6ed9a35ba09c5d4d4ef375088caa0" title="Returns the number of active column lines (cathode outputs = C0–C7) configured for this instance.">maxColumns()</a> - 1). </td></tr>
+    <tr><td class="paramname">state</td><td>true = LED ON, false = LED OFF.</td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a62655bfec20033be2dc6d48a71ce6907" name="a62655bfec20033be2dc6d48a71ce6907"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62655bfec20033be2dc6d48a71ce6907">&#9670;&#160;</a></span>setLed() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SBK_HT16K33::setLed </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set an individual LED on or off. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>Row index (0–7). </td></tr>
-    <tr><td class="paramname">col</td><td>Column index (0–15). </td></tr>
-    <tr><td class="paramname">state</td><td>true = ON, false = OFF. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This function updates the internal buffer for a single LED on a specific HT16K33 device. You must call <span class="tt">.<a class="el" href="#afbb7e443dc31691a5c6146a52e421204" title="Push the internal display buffer to all devices.">show()</a></span> to apply the changes to the physical display.</p>
+<dl class="section note"><dt>Note</dt><dd>For HT16K33:<ul>
+<li><b>rowIdx</b> corresponds to Rx pins (anode, V+ source)</li>
+<li><b>colIdx</b> corresponds to Cx pins (cathode, GND sink) Set LED at (rowIdx, colIdx) </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -454,12 +590,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Push internal buffer to the display. </p>
+<p>Push the internal display buffer to all devices. </p>
+<p>This sends the buffered LED states to all HT16K33 devices managed by this driver. Use this to update the entire display after modifying any LED states. </p>
 
 </div>
 </div>
-<a id="aa769abea843f77ff4dab588cdb7068e8" name="aa769abea843f77ff4dab588cdb7068e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa769abea843f77ff4dab588cdb7068e8">&#9670;&#160;</a></span>show() <span class="overload">[2/2]</span></h2>
+<a id="a8e078b936d22c5ffedc72ee5947d7e18" name="a8e078b936d22c5ffedc72ee5947d7e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e078b936d22c5ffedc72ee5947d7e18">&#9670;&#160;</a></span>show() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -467,25 +604,27 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SBK_HT16K33::show </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>devIdx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Push internal buffer to the device (API-compatible wrapper). </p>
+<p>Push the internal display buffer to a specific device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>not used, for compatibility only. Push buffer to display </td></tr>
+    <tr><td class="paramname">devIdx</td><td>Index of the target device (0–7).</td></tr>
   </table>
   </dd>
 </dl>
+<p>This sends the buffered LED states to the physical HT16K33 display for the specified device only.</p>
+<dl class="section note"><dt>Note</dt><dd>This function must be called after <span class="tt"><a class="el" href="#a19b65f7a38999dbc756465e3fb34758a" title="Set the state of an individual LED for a specific device.">setLed()</a></span> or <span class="tt"><a class="el" href="#ab664179d176556e928116c2cb9b8b29b" title="Clear the display buffers for all devices.">clear()</a></span> to reflect changes on the hardware. Push buffer to display for one device </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/sbara/OneDrive/Samuel - personnel/Electronics/Arduino/Sketches/libraries/SBK_HT16K33/src/<a class="el" href="_s_b_k___h_t16_k33_8h_source.html">SBK_HT16K33.h</a></li>
-<li>C:/Users/sbara/OneDrive/Samuel - personnel/Electronics/Arduino/Sketches/libraries/SBK_HT16K33/src/<a class="el" href="_s_b_k___h_t16_k33_8cpp.html">SBK_HT16K33.cpp</a></li>
+<li>C:/Users/sbara/OneDrive/Documents/GitHub/SBK_HT16K33/src/<a class="el" href="_s_b_k___h_t16_k33_8h_source.html">SBK_HT16K33.h</a></li>
+<li>C:/Users/sbara/OneDrive/Documents/GitHub/SBK_HT16K33/src/<a class="el" href="_s_b_k___h_t16_k33_8cpp.html">SBK_HT16K33.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
